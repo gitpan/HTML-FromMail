@@ -1,0 +1,69 @@
+
+=head1 NAME
+
+Html::FromMail::Default::Previewers - produce smaller versions of data items
+
+
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+These functions define the default algorithms to produce previews for
+message bodies.  When a message part is inlined, and there is an
+htmlifier defined for it, that will be prevailed
+(see HTML::FromMail::Default::HTMLifiers).  When inlining is not possible
+or not requested, there may be a preview constructed.  The defaults are
+defined in this module.
+
+Any function here shall return something reasonable, even if the conversion
+fails for some reason.  Each fuction returns the data for a referenve to a
+hash of values, which are accessible in the output formatter.  Each hash
+must define either
+ image => {}, html => ''     # an image is produced, or
+ image => '', html => {}     # html was produced
+
+Each of the functions is called with five arguments: PAGE, MESSAGE,
+PART, ATTACH, and ARGS argument.  The PAGE is the object which produces pages,
+an extension of L<HTML::FromMail::Page|HTML::FromMail::Page>.  The MESSAGE is the main message
+which is displayed (a Mail::Message object).  The PART is either
+the whole MESSAGE or a part within a multipart or nested message (a
+Mail::Message::Part object).  The PART information is to be processed.
+
+As ATTACH, a reference to a hash with information about the created
+attachement is passed. This information is needed to produce the preview.
+That same hash is extended with more information from the previewer, and
+then accessible via the formatter.
+
+The ARGS is a wild combination of information about the formatter
+and information defined by it.  For instance, the arguments which are
+passed with the tag in the template file can be found in there.  Print the 
+content of the hash to see how much information you get... (sorry for this
+rough description)
+
+
+
+
+
+
+
+
+
+
+=head1 REFERENCES
+
+See the HTML::FromMail website at L<http://perl.overmeer.net/html-from-mail/> for more details.
+
+=head1 COPYRIGHTS
+
+Module version 0.01.
+Written by Mark Overmeer (mark@overmeer.net).  See the ChangeLog for
+other contributors.
+
+Copyright (c) 2003 by the author(s). All rights reserved.  This program
+is free software; you can redistribute it and/or modify it under the
+same terms as Perl itself.
+
+

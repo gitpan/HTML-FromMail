@@ -1,0 +1,106 @@
+
+=head1 NAME
+
+HTML::FromMail::Format::Magic - convert messages into HTML using Text::MagicTemplate
+
+
+=head1 INHERITANCE
+
+ HTML::FromMail::Format::Magic
+   is a HTML::FromMail::Format
+   is a Mail::Reporter
+
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Convert messages into HTML using L<Text::MagicTemplate>.  This is a simple
+template system, which focusses on giving produced pieces of HTML a place
+in larger HTML structures.
+
+
+
+=head1 METHODS
+
+
+$obj-E<gt>B<containerText>(ARGS)
+
+=over 4
+
+See L<HTML::FromMail::Format/"METHODS">
+
+=back
+
+$obj-E<gt>B<lookup>(TAG, ARGS)
+
+=over 4
+
+See L<HTML::FromMail::Format/"METHODS">
+
+=back
+
+$obj-E<gt>B<lookupTemplate>(ARGS, ZONE)
+
+=over 4
+
+Kind of autoloader, used to discover the correct method to be invoked
+when a pattern must be filled-in.
+ZONE is the found L<Ttxt::MagicTemplate::Zone> information.
+
+=back
+
+$obj-E<gt>B<magic>
+
+=over 4
+
+Returns the L<Text::MagicTemplate> object which is used.
+
+=back
+
+HTML::FromMail::Format::Magic-E<gt>B<new>(OPTIONS)
+
+=over 4
+
+=back
+
+$obj-E<gt>B<onFinalToken>(ARGS)
+
+=over 4
+
+See L<HTML::FromMail::Format/"METHODS">
+
+=back
+
+$obj-E<gt>B<processText>(TEXT, ARGS)
+
+=over 4
+
+See L<HTML::FromMail::Format/"METHODS">
+
+=back
+
+
+
+
+
+
+
+
+=head1 REFERENCES
+
+See the HTML::FromMail website at L<http://perl.overmeer.net/html-from-mail/> for more details.
+
+=head1 COPYRIGHTS
+
+Module version 0.01.
+Written by Mark Overmeer (mark@overmeer.net).  See the ChangeLog for
+other contributors.
+
+Copyright (c) 2003 by the author(s). All rights reserved.  This program
+is free software; you can redistribute it and/or modify it under the
+same terms as Perl itself.
+
+
