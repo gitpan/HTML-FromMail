@@ -4,7 +4,7 @@ use warnings;
 
 package HTML::FromMail::Default::Previewers;
 use vars '$VERSION';
-$VERSION = '0.01';
+$VERSION = '0.10';
 use base 'HTML::FromMail::Object';
 
 use Carp;

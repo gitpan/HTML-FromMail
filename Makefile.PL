@@ -6,8 +6,8 @@ use IO::Handle;
 
 my @optional =
 (
-  [ Text::MagicTemplate => '3.12', reason => <<'REASON' ]
-Required if you want to use the Text::MagicTemplate formatter, which is
+  [ Template::Magic => '1.02', reason => <<'REASON' ]
+Required if you want to use the Template::Magic formatter, which is
 not required to run the examples.
 REASON
 
@@ -162,8 +162,8 @@ foreach my $optional (@optional)
     print "     Added $distr version $version to the requirements\n";
 }
 
-$prereq{'Bundle::Text::MagicTemplate'} = '3.12'
-   if exists $prereq{'Text::MagicTemplate'};
+$prereq{'Bundle::Template::Magic'} = '0'
+   if exists $prereq{'Template::Magic'};
 
 print <<'DONE';
 

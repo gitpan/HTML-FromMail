@@ -4,17 +4,17 @@ use warnings;
 
 package HTML::FromMail::Format::Magic;
 use vars '$VERSION';
-$VERSION = '0.01';
+$VERSION = '0.10';
 use base 'HTML::FromMail::Format';
 
 use Carp;
 
 BEGIN
-{   eval { require Text::MagicTemplate };
-    die "Install Bundle::Text::MagicTemplate for this formatter\n"
+{   eval { require Template::Magic };
+    die "Install Bundle::Template::Magic for this formatter\n"
        if $@;
 
-    Text::MagicTemplate->VERSION('3.05');
+    Template::Magic->VERSION('3.05');
 }
 
 
@@ -30,7 +30,7 @@ sub export($@)
 {   my ($self, %args) = @_;
 
     my $magic = $self->{HFFM_magic}
-      = Text::MagicTemplate->new
+      = Template::Magic->new
          ( markers       => 'HTML'
          , zone_handlers => sub { $self->lookupTemplate(\%args, @_) }
          );

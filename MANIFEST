@@ -3,10 +3,6 @@ MANIFEST
 Makefile.PL
 examples/README
 examples/demo.pl
-examples/demo_templ1/message/index.html
-examples/demo_templ2/message/details.html
-examples/demo_templ2/message/index.html
-examples/msg2html.pl
 examples/show_all.pl
 examples/templ_all/message/index.html
 examples/templ_demo/message/details.html
@@ -36,3 +32,4 @@ lib/HTML/FromMail/Page.pm
 lib/HTML/FromMail/Page.pod
 t/00run.t
 version
+META.yml                                 Module meta-data (added by MakeMaker)

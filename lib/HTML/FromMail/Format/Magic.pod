@@ -1,7 +1,7 @@
 
 =head1 NAME
 
-HTML::FromMail::Format::Magic - convert messages into HTML using Text::MagicTemplate
+HTML::FromMail::Format::Magic - convert messages into HTML using Template::Magic
 
 
 =head1 INHERITANCE
@@ -17,7 +17,7 @@ HTML::FromMail::Format::Magic - convert messages into HTML using Text::MagicTemp
 
 =head1 DESCRIPTION
 
-Convert messages into HTML using L<Text::MagicTemplate>.  This is a simple
+Convert messages into HTML using L<Template::Magic>.  This is a simple
 template system, which focusses on giving produced pieces of HTML a place
 in larger HTML structures.
 
@@ -48,7 +48,7 @@ $obj-E<gt>B<lookupTemplate>(ARGS, ZONE)
 
 Kind of autoloader, used to discover the correct method to be invoked
 when a pattern must be filled-in.
-ZONE is the found L<Ttxt::MagicTemplate::Zone> information.
+ZONE is the found L<Template::Magic::Zone> information.
 
 =back
 
@@ -56,7 +56,7 @@ $obj-E<gt>B<magic>
 
 =over 4
 
-Returns the L<Text::MagicTemplate> object which is used.
+Returns the L<Template::Magic> object which is used.
 
 =back
 
@@ -95,7 +95,7 @@ See the HTML::FromMail website at L<http://perl.overmeer.net/html-from-mail/> fo
 
 =head1 COPYRIGHTS
 
-Module version 0.01.
+Module version 0.10.
 Written by Mark Overmeer (mark@overmeer.net).  See the ChangeLog for
 other contributors.
 

@@ -4,7 +4,7 @@ use warnings;
 
 package HTML::FromMail::Head;
 use vars '$VERSION';
-$VERSION = '0.01';
+$VERSION = '0.10';
 use base 'HTML::FromMail::Page';
 
 use HTML::FromMail::Field;

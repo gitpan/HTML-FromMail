@@ -558,7 +558,7 @@ See the HTML::FromMail website at L<http://perl.overmeer.net/html-from-mail/> fo
 
 =head1 COPYRIGHTS
 
-Module version 0.01.
+Module version 0.10.
 Written by Mark Overmeer (mark@overmeer.net).  See the ChangeLog for
 other contributors.
 

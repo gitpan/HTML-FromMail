@@ -4,7 +4,7 @@ use warnings;
 
 package HTML::FromMail::Default::HTMLifiers;
 use vars '$VERSION';
-$VERSION = '0.01';
+$VERSION = '0.10';
 
 use HTML::FromText;
 use Carp;
