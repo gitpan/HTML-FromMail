@@ -1,8 +1,6 @@
-
 =head1 NAME
 
 HTML::FromMail::Format::Magic - convert messages into HTML using Template::Magic
-
 
 =head1 INHERITANCE
 
@@ -10,10 +8,7 @@ HTML::FromMail::Format::Magic - convert messages into HTML using Template::Magic
    is a HTML::FromMail::Format
    is a Mail::Reporter
 
-
 =head1 SYNOPSIS
-
-
 
 =head1 DESCRIPTION
 
@@ -21,10 +16,7 @@ Convert messages into HTML using L<Template::Magic>.  This is a simple
 template system, which focusses on giving produced pieces of HTML a place
 in larger HTML structures.
 
-
-
 =head1 METHODS
-
 
 $obj-E<gt>B<containerText>(ARGS)
 
@@ -82,25 +74,16 @@ See L<HTML::FromMail::Format/"METHODS">
 
 =back
 
+=head1 SEE ALSO
 
+This module is part of HTML-FromMail distribution version 0.11,
+built on June 08, 2007. Website: F<http://perl.overmeer.net/html-from-mail/>
 
+=head1 LICENSE
 
+Copyrights 2003,2004,2007 by Mark Overmeer. For other contributors see ChangeLog.
 
-
-
-
-=head1 REFERENCES
-
-See the HTML::FromMail website at L<http://perl.overmeer.net/html-from-mail/> for more details.
-
-=head1 COPYRIGHTS
-
-Module version 0.10.
-Written by Mark Overmeer (mark@overmeer.net).  See the ChangeLog for
-other contributors.
-
-Copyright (c) 2003 by the author(s). All rights reserved.  This program
-is free software; you can redistribute it and/or modify it under the
-same terms as Perl itself.
-
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+See F<http://www.perl.com/perl/misc/Artistic.html>
 

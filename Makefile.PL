@@ -26,38 +26,13 @@ my %prereq =
  ( Mail::Box           => 2.051 # used everywhere
  , HTML::FromText      => 2.03  # for HTML::FromMail::Default::HTMLifiers
  , OODoc::Template     => 0.01  # default template system
+ , Test::Pod           => 1.00
  );
 
 my $has_readkey;
 BEGIN
 {   eval "require Term::ReadKey";
     $has_readkey = not length $@;
-}
-
-sub ask($$)
-{   my ($text, $default) = @_;
-    print "---> $text [$default] ";
-    my $key;
-
-    if(! -t STDIN) { $key = $default }
-    elsif($has_readkey)
-    {   Term::ReadKey->import;
-        ReadMode(3);   # cbreak mode
-        $key = ReadKey(0) until defined($key);
-        ReadMode(1);
-
-        $key = $default if $key =~ m/\n/;
-        print "$key\n";
-    }
-    else
-    {   # No Term::ReadKey
-        flush STDOUT;
-        my $line = <STDIN>;
-        $line    =~ m/(\S)/;
-        $key     = $1 || $default;
-    }
-
-    $key;
 }
 
 my $default_install_answer = $ENV{INSTALL_HTMLFROMMAIL_OPTIONALS}
@@ -144,7 +119,7 @@ foreach my $optional (@optional)
     }
     
     my $install  = $default_install_answer;
-    my $key = ask "Do you want to install $module? yes/no/all", $install;
+    my $key = prompt "Do you want to install $module? yes/no/all", $install;
 
     if($key eq 'a')
     {   $default_install_answer = 'a';
@@ -172,9 +147,23 @@ print <<'DONE';
 DONE
 
 WriteMakefile
- ( NAME	        => 'HTML::FromMail'
- , VERSION_FROM => 'lib/HTML/FromMail.pm'
- , AUTHOR       => 'Mark Overmeer'
- , ABSTRACT     => 'Convert E-mail into HTML'
- , PREREQ_PM    => \%prereq
+ ( NAME	      => 'HTML::FromMail'
+ , VERSION    => '0.11'
+ , AUTHOR     => 'Mark Overmeer'
+ , ABSTRACT   => 'Convert E-mail into HTML'
+ , PREREQ_PM  => \%prereq
  );
+
+sub MY::postamble { <<'__POSTAMBLE' }
+
+# for OODoc's oodist, DIST
+RAWDIR		= ../public_html/html-from-mail/raw
+DISTDIR		= ../public_html/html-from-mail/source
+LICENSE		= artistic
+
+# for OODoc's oodist, POD
+FIRST_YEAR	= 2003,2004,2007
+EMAIL		= perl@overmeer.net
+WEBSITE		= http://perl.overmeer.net/html-from-mail/
+
+__POSTAMBLE

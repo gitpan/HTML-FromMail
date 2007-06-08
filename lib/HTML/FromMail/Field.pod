@@ -1,8 +1,6 @@
-
 =head1 NAME
 
 HTML::FromMail::Field - output a header field as HTML
-
 
 =head1 INHERITANCE
 
@@ -11,18 +9,11 @@ HTML::FromMail::Field - output a header field as HTML
    is a HTML::FromMail::Object
    is a Mail::Reporter
 
-
 =head1 SYNOPSIS
-
-
 
 =head1 DESCRIPTION
 
-
-
-
 =head1 METHODS
-
 
 $obj-E<gt>B<addressField>(FIELD, HOW, ARGS)
 
@@ -58,12 +49,12 @@ $obj-E<gt>B<htmlBody>(ARGS)
 Produce the body of the field: everything after the first colon on the
 header line.
 
- Option   Defined in       Default    
- address                   C<'MAILTO'>
- content                   <depends>  
- wrap                      C<78>      
+ Option --Default
+ address  'MAILTO'
+ content  <depends>
+ wrap     78
 
-. address ADDRESS|PHRASE|PLAIN|MAILTO|LINK
+. address => ADDRESS|PHRASE|PLAIN|MAILTO|LINK
 
 =over 4
 
@@ -71,7 +62,7 @@ See L</address HOW>
 
 =back
 
-. content FOLDED|REFOLD|UNFOLDED|DECODED
+. content => FOLDED|REFOLD|UNFOLDED|DECODED
 
 =over 4
 
@@ -81,7 +72,7 @@ L</content HOW>
 
 =back
 
-. wrap INTEGER
+. wrap => INTEGER
 
 =over 4
 
@@ -98,10 +89,10 @@ $obj-E<gt>B<htmlName>(ARGS)
 
 Returns the name of the header field.
 
- Option    Defined in  Default    
- capitals              'UNCHANGED'
+ Option  --Default
+ capitals  'UNCHANGED'
 
-. capitals 'UNCHANGED'|'WELLFORMED'
+. capitals => 'UNCHANGED'|'WELLFORMED'
 
 =over 4
 
@@ -124,18 +115,17 @@ HTML::FromMail::Field-E<gt>B<new>(OPTIONS)
 
 =over 4
 
- Option    Defined in       Default   
- settings  L<HTML::FromMail::Object>  {}        
- topic     L<HTML::FromMail::Object>  C<'field'>
+ Option  --Defined in     --Default
+ settings  HTML::FromMail::Object  {}
+ topic     HTML::FromMail::Object  'field'
 
-. settings HASH-OF-HASHES
+. settings => HASH-OF-HASHES
 
-. topic STRING
+. topic => STRING
 
 =back
 
 =head2 Attributes
-
 
 $obj-E<gt>B<settings>([TOPIC])
 
@@ -155,9 +145,7 @@ See L<HTML::FromMail::Object/"Attributes">
 
 =head2 Export
 
-
 =head2 Other methods
-
 
 $obj-E<gt>B<plain2html>(STRING)
 
@@ -167,11 +155,7 @@ See L<HTML::FromMail::Object/"Other methods">
 
 =back
 
-
-
-
 =head1 DETAILS
-
 
 =head2 Settings
 
@@ -186,11 +170,12 @@ have a choice.  As example, the header field contains the address
  "My Name" E<lt>me@example.comE<gt>
  you@example.com
 
-
 The possible settings for this parameter are
 
 =over 4
+
 =item * C<'PLAIN'>
+
 Show the address as was specified in the message header, without smart
 processing.
  "My Name" E<lt>me@example.com E<gt>
@@ -215,42 +200,46 @@ Only show the address of the users.
 Create a link behind the phrase.  In case there is no phrase, the
 address itself is displayed.  This is the most convenient link, if
 you decide to create a link.
- E<lt>a href="mailto:me@example.com"E<gt>My Name E<lt>/a E<gt>
- E<lt>a href="mailto:you@example.com"E<gt>you@example.com E<lt>/a E<gt>
+ <a href="mailto:me@example.com">My Name </a>
+ <a href="mailto:you@example.com">you@example.com </a>
 
 =item * C<'LINK'>
 
 Often seen, but more for simplicity of implementation is the link
 under the address.  The C<'MAILTO'> is probably easier to understand.
- "My Name" E<lt>a href="mailto:me@example.com"E<gt>me@example.com E<lt>/a E<gt>
+ "My Name" <a href="mailto:me@example.com">me@example.com</a>
+ <a href="mailto:you@example.com">you@example.com</a>
 
- E<lt>a href="mailto:you@example.com"E<gt>you@example.com E<lt>/a E<gt>
 =back
 
 =head3 content HOW
 
 Defined HOW field bodies are handled, by default UNFOLDED.
-
 Valid values are
 
 =over 4
+
 =item  C<'FOLDED'>
+
 Included the content FOLDED as found in the source message.  This is the
 fastest choice, and usually in a preformatted html block, otherwise the
-
 folding will be lost again.
+
 =item C<'REFOLD'>
+
 Do not accept the folding as found in the message headers, but force it
-
 into the wrap which is defined by C<wrap>.
+
 =item C<'UNFOLDED'>
+
 All line folding is removed from the field.  This useful when the field body
-
 is displayed in a proportional font.
-=item C<'DECODED'>
-Fields may be character-set encoded.  Decoding these fields is nicest,
 
+=item C<'DECODED'>
+
+Fields may be character-set encoded.  Decoding these fields is nicest,
 but consumes considerable time.
+
 =back
 
 =head3 names HOW
@@ -264,7 +253,6 @@ is selected.  By default, the names are displayed UNCHANGED.
 
 I<Example:> using L<HTML::FromMail::Format::Magic|HTML::FromMail::Format::Magic>
 
-
   <!--{name capitals => WELLFORMED}-->
 
 =head3 wrap INTEGER
@@ -272,22 +260,16 @@ I<Example:> using L<HTML::FromMail::Format::Magic|HTML::FromMail::Format::Magic>
 Used in combination with C<content REFOLD>, to specify how many characters
 are requested per line.
 
+=head1 SEE ALSO
 
+This module is part of HTML-FromMail distribution version 0.11,
+built on June 08, 2007. Website: F<http://perl.overmeer.net/html-from-mail/>
 
+=head1 LICENSE
 
+Copyrights 2003,2004,2007 by Mark Overmeer. For other contributors see ChangeLog.
 
-=head1 REFERENCES
-
-See the HTML::FromMail website at L<http://perl.overmeer.net/html-from-mail/> for more details.
-
-=head1 COPYRIGHTS
-
-Module version 0.10.
-Written by Mark Overmeer (mark@overmeer.net).  See the ChangeLog for
-other contributors.
-
-Copyright (c) 2003 by the author(s). All rights reserved.  This program
-is free software; you can redistribute it and/or modify it under the
-same terms as Perl itself.
-
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+See F<http://www.perl.com/perl/misc/Artistic.html>
 

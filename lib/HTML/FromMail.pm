@@ -1,10 +1,14 @@
+# Copyrights 2003,2004,2007 by Mark Overmeer.
+#  For other contributors see ChangeLog.
+# See the manual pages for details on the licensing terms.
+# Pod stripped from pm file by OODoc 1.00.
 
 use strict;
 use warnings;
 
 package HTML::FromMail;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 use base 'Mail::Reporter';
 
 use File::Spec::Functions;
@@ -124,8 +128,9 @@ sub export($@)
     $self->log(ERROR => "No output directory or file specified."), return
        unless defined $output;
 
-    $self->log(ERROR => "Cannot create output directory $output: $!"), return
-       unless -d $output || mkdir $output;
+# this cannot be right when $output isa filename?
+#   $self->log(ERROR => "Cannot create output directory $output: $!"), return
+#      unless -d $output || mkdir $output;
 
     my $topic     = $producer->topic;
     my @files;
